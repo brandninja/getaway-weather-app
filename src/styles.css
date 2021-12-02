@@ -82,3 +82,9 @@ a:visited {
 .five-days {
   font-weight: 700;
 }
+
+.footer {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
