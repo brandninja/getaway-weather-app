@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li em {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Example</h1>
+    <ul>
+      <li>Paris</li>
+      <li>London</li>
+      <li>Barcelona</li>
+      <li>Los Angeles</li>
+    </ul>
+  </body>
+  <script>
+    let cities = [
+      {
+        name: "Sydney",
+        country: "Australia",
+        population: 24.6,
+        englishSpeaking: true,
+      },
+      {
+        name: "Berlin",
+        country: "Germany",
+        population: 12,
+        englishSpeaking: false,
+      },
+      {
+        name: "Sydney",
+        country: "Australia",
+        population: 24.6,
+        englishSpeaking: true,
+      },
+      {
+        name: "Mexico City",
+        country: "Mexico",
+        population: 20,
+        englishSpeaking: false,
+      },
+    ];
+
+    console.log(cities[1].name);
+
+    console.log(cities[3].name);
+  </script>
+</html>

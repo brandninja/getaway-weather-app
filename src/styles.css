@@ -1,0 +1,84 @@
+body {
+  background-image: url(https://media.cnn.com/api/v1/images/stellar/prod/190206112812-possible-header.jpg?q=w_1600,h_1100,x_0,y_0,c_fill);
+  background-position: center top;
+  background-size: 100%;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  padding: 10px 0px;
+}
+
+img {
+  width: 183px;
+  margin-left: 35px;
+  margin-top: -130px;
+}
+
+a:visited {
+  color: #0000;
+}
+.logo {
+  width: 100px;
+  margin-left: 125px;
+  margin-top: 0px;
+}
+.card {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding-left: 15px;
+}
+
+.city-header {
+  margin-top: 28px;
+}
+.current-city {
+  margin: 3px 5px;
+}
+.day-time {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  margin-top: -10px;
+}
+.icon-temp {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-left: 3px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.number-temp {
+  position: relative;
+  top: -5px;
+}
+.faren,
+.celsius {
+  font-size: 15px;
+  position: relative;
+  top: -13px;
+  left: 0px;
+}
+
+.current-weather {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  list-style: none;
+  padding: 0;
+  margin-top: -4px;
+  margin-left: -24px;
+}
+
+.five-day-forecast {
+  text-align: center;
+  margin-left: -10px;
+}
+
+.five-icons {
+  margin-top: -50px;
+  margin-bottom: 10px;
+  margin-left: 1px;
+}
+.five-days {
+  font-weight: 700;
+}
