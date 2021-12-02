@@ -20,6 +20,7 @@ img {
 a:visited {
   color: #0000;
 }
+
 .logo {
   width: 100px;
   margin-left: 125px;
@@ -86,5 +87,7 @@ a:visited {
 .footer {
   display: block;
   text-align: center;
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
   margin-top: 20px;
 }
