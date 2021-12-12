@@ -60,7 +60,42 @@ function displayWeather(response) {
 
   let apiIcon = response.data.weather[0].icon;
   if (apiIcon === "01d") {
-    document.getElementById("current-icon").className = "fa-regular fa-cloud";
+    document.getElementById("current-icon").className = "fas fa-sun";
+  }
+  if (apiIcon === "01n") {
+    document.getElementById("current-icon").className = "fas fa-moon-stars";
+  }
+  if (apiIcon === "02d") {
+    document.getElementById("current-icon").className = "fas fa-cloud-sun";
+  }
+  if (apiIcon === "02n") {
+    document.getElementById("current-icon").className = "fas fa-cloud-moon";
+  }
+  if (apiIcon === "03d" || apiIcon === "03n") {
+    document.getElementById("current-icon").className = "fas fa-cloud";
+  }
+  if (apiIcon === "04d" || apiIcon === "04n") {
+    document.getElementById("current-icon").className = "fas fa-clouds";
+  }
+  if (apiIcon === "09d" || apiIcon === "09n") {
+    document.getElementById("current-icon").className =
+      "fas fa-cloud-showers-heavy";
+  }
+  if (apiIcon === "10d") {
+    document.getElementById("current-icon").className = "fas fa-cloud-sun-rain";
+  }
+  if (apiIcon === "10n") {
+    document.getElementById("current-icon").className =
+      "fas fa-cloud-moon-rain";
+  }
+  if (apiIcon === "11d" || apiIcon === "11n") {
+    document.getElementById("current-icon").className = "fas fa-cloud-bolt";
+  }
+  if (apiIcon === "13d" || apiIcon === "13n") {
+    document.getElementById("current-icon").className = "fas fa-snowflake";
+  }
+  if (apiIcon === "50d" || apiIcon === "50n") {
+    document.getElementById("current-icon").className = "fas fa-cloud-fog";
   }
 }
 
