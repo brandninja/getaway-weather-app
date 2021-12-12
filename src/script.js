@@ -63,7 +63,7 @@ function displayWeather(response) {
     document.getElementById("current-icon").className = "fas fa-sun";
   }
   if (apiIcon === "01n") {
-    document.getElementById("current-icon").className = "fas fa-moon-stars";
+    document.getElementById("current-icon").className = "fas fa-moon";
   }
   if (apiIcon === "02d") {
     document.getElementById("current-icon").className = "fas fa-cloud-sun";
@@ -75,7 +75,7 @@ function displayWeather(response) {
     document.getElementById("current-icon").className = "fas fa-cloud";
   }
   if (apiIcon === "04d" || apiIcon === "04n") {
-    document.getElementById("current-icon").className = "fas fa-clouds";
+    document.getElementById("current-icon").className = "fas fa-cloud";
   }
   if (apiIcon === "09d" || apiIcon === "09n") {
     document.getElementById("current-icon").className =
@@ -89,13 +89,13 @@ function displayWeather(response) {
       "fas fa-cloud-moon-rain";
   }
   if (apiIcon === "11d" || apiIcon === "11n") {
-    document.getElementById("current-icon").className = "fas fa-cloud-bolt";
+    document.getElementById("current-icon").className = "fas fa-poo-storm";
   }
   if (apiIcon === "13d" || apiIcon === "13n") {
     document.getElementById("current-icon").className = "fas fa-snowflake";
   }
   if (apiIcon === "50d" || apiIcon === "50n") {
-    document.getElementById("current-icon").className = "fas fa-cloud-fog";
+    document.getElementById("current-icon").className = "fas fa-smog";
   }
 }
 
