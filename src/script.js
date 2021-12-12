@@ -57,6 +57,11 @@ function displayWeather(response) {
   let cityWind = Math.round(response.data.wind.speed);
   let displayWind = document.querySelector("#wind-speed");
   displayWind.innerHTML = `Wind Speed ${cityWind} mph`;
+
+  let apiIcon = response.data.weather[0].icon;
+  if (apiIcon === "01d") {
+    document.getElementById("current-icon").className = "fa-regular fa-cloud";
+  }
 }
 
 function searchCity(city) {
