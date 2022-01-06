@@ -134,6 +134,16 @@ stayHomeButton.addEventListener("click", stayHome);
 
 searchCity("Los Angeles");
 
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemperature = Math.round(((58 - 32) * 5) / 9);
+  let displayTemp = document.querySelector("#number-temp");
+  displayTemp.innerHTML = `${celsiusTemperature}°`;
+}
+
+let celsiusClick = document.querySelector("#celsius-click");
+celsiusClick.addEventListener("click", showCelsiusTemp);
+
 // below this line, change to F, change to C with fake data
 
 //function changeToFaren(event) {
