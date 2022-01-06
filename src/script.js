@@ -36,6 +36,8 @@ function displayWeather(response) {
   let displayTemp = document.querySelector("#number-temp");
   displayTemp.innerHTML = `${cityTemp}°`;
 
+  fahrenheitTemp = response.data.main.temp;
+
   let cityWeatherDescription = response.data.weather[0].main;
   let displayWeatherDescription = document.querySelector(
     "#weather-description"
@@ -132,17 +134,28 @@ function stayHome(event) {
 let stayHomeButton = document.querySelector("#stay-home-button");
 stayHomeButton.addEventListener("click", stayHome);
 
-searchCity("Los Angeles");
-
 function showCelsiusTemp(event) {
   event.preventDefault();
-  let celsiusTemperature = Math.round(((58 - 32) * 5) / 9);
+  let celsiusTemperature = Math.round(((fahrenheitTemp - 32) * 5) / 9);
   let displayTemp = document.querySelector("#number-temp");
   displayTemp.innerHTML = `${celsiusTemperature}°`;
 }
 
+function displayFaren(event) {
+  event.preventDefault();
+  let displayTemp = document.querySelector("#number-temp");
+  displayTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
+
 let celsiusClick = document.querySelector("#celsius-click");
 celsiusClick.addEventListener("click", showCelsiusTemp);
+
+let farenClick = document.querySelector("#faren-click");
+farenClick.addEventListener("click", displayFaren);
+
+searchCity("Los Angeles");
 
 // below this line, change to F, change to C with fake data
 
