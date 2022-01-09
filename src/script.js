@@ -30,35 +30,20 @@ currentTime.innerHTML = `${localeTime}`;
 function displayWeather(response) {
   let cityName = response.data.name;
   let displayCity = document.querySelector("#display-city");
-  displayCity.innerHTML = `${cityName}`;
-
   let cityTemp = Math.round(response.data.main.temp);
   let displayTemp = document.querySelector("#number-temp");
-  displayTemp.innerHTML = `${cityTemp}°`;
-
-  fahrenheitTemp = response.data.main.temp;
-
   let cityWeatherDescription = response.data.weather[0].main;
   let displayWeatherDescription = document.querySelector(
     "#weather-description"
   );
-  displayWeatherDescription.innerHTML = `${cityWeatherDescription}`;
-
   let cityTempMax = Math.round(response.data.main.temp_max);
   let displayTempMax = document.querySelector("#temp-max");
-  displayTempMax.innerHTML = `High ${cityTempMax}° |`;
-
   let cityTempMin = Math.round(response.data.main.temp_min);
   let displayTempMin = document.querySelector("#temp-min");
-  displayTempMin.innerHTML = `Low ${cityTempMin}°`;
-
   let cityHumidity = Math.round(response.data.main.humidity);
   let displayHumidity = document.querySelector("#humidity");
-  displayHumidity.innerHTML = `Humidity ${cityHumidity}%`;
-
   let cityWind = Math.round(response.data.wind.speed);
   let displayWind = document.querySelector("#wind-speed");
-  displayWind.innerHTML = `Wind Speed ${cityWind} mph`;
 
   let apiIcon = response.data.weather[0].icon;
   if (apiIcon === "01d") {
@@ -99,6 +84,14 @@ function displayWeather(response) {
   if (apiIcon === "50d" || apiIcon === "50n") {
     document.getElementById("current-icon").className = "fas fa-smog";
   }
+  displayCity.innerHTML = `${cityName}`;
+  displayTemp.innerHTML = `${cityTemp}°`;
+  fahrenheitTemp = response.data.main.temp;
+  displayWeatherDescription.innerHTML = `${cityWeatherDescription}`;
+  displayTempMax.innerHTML = `High ${cityTempMax}° |`;
+  displayTempMin.innerHTML = `Low ${cityTempMin}°`;
+  displayHumidity.innerHTML = `Humidity ${cityHumidity}%`;
+  displayWind.innerHTML = `Wind Speed ${cityWind} mph`;
 }
 
 function searchCity(city) {
@@ -161,27 +154,3 @@ let farenClick = document.querySelector("#faren-click");
 farenClick.addEventListener("click", displayFarenTemp);
 
 searchCity("Los Angeles");
-
-// below this line, change to F, change to C with fake data
-
-//function changeToFaren(event) {
-//  event.preventDefault();
-//  let numberTemp = document.querySelector("#number-temp");
-//  numberTemp.innerHTML = "17°";
-// }
-
-// let farenClick = document.querySelector("#faren-click");
-// farenClick.addEventListener("click", changeToFaren);
-
-// function changeToCelsius(event) {
-//  event.preventDefault();
-//  let numberTemp = document.querySelector("#number-temp");
-//  numberTemp.innerHTML = "5°";
-//  }
-// let celsiusClick = document.querySelector("#celsius-click");
-// celsiusClick.addEventListener("click", changeToCelsius);
-
-//when a user searches for a city (example: New York), it should display the
-//name of the city on the result page and the current temperature of the city.
-//Add a Current Location button. When clicking on it, it uses the Geolocation API
-//to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
