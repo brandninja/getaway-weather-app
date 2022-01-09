@@ -91,3 +91,9 @@ a:visited {
   font-family: "Courier New", Courier, monospace;
   margin-top: 20px;
 }
+
+.current-city .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
