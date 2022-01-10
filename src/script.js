@@ -134,15 +134,6 @@ function displayForecast() {
       <div>23° / 14°</div>
     </div>  
   `;
-  forecastHTML =
-    forecastHTML +
-    `
-    <div class="col-2">
-      <i id="forecast-icon" class="fas fa-snowflake"></i>
-      <div><strong>Wed</strong></div>
-      <div>23° / 14°</div>
-    </div>  
-  `;
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
