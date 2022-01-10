@@ -84,6 +84,7 @@ function displayWeather(response) {
   if (apiIcon === "50d" || apiIcon === "50n") {
     document.getElementById("current-icon").className = "fas fa-smog";
   }
+
   displayCity.innerHTML = `${cityName}`;
   displayTemp.innerHTML = `${cityTemp}°`;
   fahrenheitTemp = response.data.main.temp;
@@ -92,6 +93,10 @@ function displayWeather(response) {
   displayTempMin.innerHTML = `Low ${cityTempMin}°`;
   displayHumidity.innerHTML = `Humidity ${cityHumidity}%`;
   displayWind.innerHTML = `Wind Speed ${cityWind} mph`;
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 }
 
 function searchCity(city) {
@@ -154,3 +159,4 @@ let farenClick = document.querySelector("#faren-click");
 farenClick.addEventListener("click", displayFarenTemp);
 
 searchCity("Los Angeles");
+displayForecast();
