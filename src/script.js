@@ -27,6 +27,13 @@ currentTime.innerHTML = `${localeTime}`;
 
 //above this is the auto-updated date and time
 
+function getForecast(coordinates) {
+  let apiKey = "b3cdb6968572344c2ff1c9ddda2aeb03";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   let cityName = response.data.name;
   let displayCity = document.querySelector("#display-city");
@@ -93,12 +100,15 @@ function displayWeather(response) {
   displayTempMin.innerHTML = `Low ${cityTempMin}°`;
   displayHumidity.innerHTML = `Humidity ${cityHumidity}%`;
   displayWind.innerHTML = `Wind Speed ${cityWind} mph`;
+
+  getForecast(response.data.coord);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
   let days = ["Mon", "Tue", "Wed", "Thu"];
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -113,7 +123,6 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 function searchCity(city) {
@@ -122,6 +131,14 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 }
+
+//function getForecast(city) {
+//let apiKey = "b3cdb6968572344c2ff1c9ddda2aeb03";
+//let units = "imperial";
+//let cnt = 4;
+//let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=${cnt}&appid=${apiKey}&units=${units}`;
+//axios.get(apiUrl).then(displayForecast);
+//}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -151,7 +168,6 @@ stayHomeButton.addEventListener("click", stayHome);
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
-
   let celsiusTemperature = Math.round(((fahrenheitTemp - 32) * 5) / 9);
   let displayTemp = document.querySelector("#number-temp");
   farenClick.classList.remove("active");
@@ -176,4 +192,3 @@ let farenClick = document.querySelector("#faren-click");
 farenClick.addEventListener("click", displayFarenTemp);
 
 searchCity("Los Angeles");
-displayForecast();
