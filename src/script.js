@@ -100,7 +100,7 @@ function displayWeather(response) {
   }
 
   displayCity.innerHTML = `${cityName}`;
-  displayTemp.innerHTML = `${cityTemp}°`;
+  displayTemp.innerHTML = `${cityTemp}`;
   fahrenheitTemp = response.data.main.temp;
   displayWeatherDescription.innerHTML = `${cityWeatherDescription}`;
   displayTempMax.innerHTML = `High ${cityTempMax}° |`;
@@ -168,30 +168,5 @@ function stayHome(event) {
 
 let stayHomeButton = document.querySelector("#stay-home-button");
 stayHomeButton.addEventListener("click", stayHome);
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let celsiusTemperature = Math.round(((fahrenheitTemp - 32) * 5) / 9);
-  let displayTemp = document.querySelector("#number-temp");
-  farenClick.classList.remove("active");
-  celsiusClick.classList.add("active");
-  displayTemp.innerHTML = `${celsiusTemperature}°`;
-}
-
-function displayFarenTemp(event) {
-  event.preventDefault();
-  let displayTemp = document.querySelector("#number-temp");
-  celsiusClick.classList.remove("active");
-  farenClick.classList.add("active");
-  displayTemp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-let fahrenheitTemp = null;
-
-let celsiusClick = document.querySelector("#celsius-click");
-celsiusClick.addEventListener("click", displayCelsiusTemp);
-
-let farenClick = document.querySelector("#faren-click");
-farenClick.addEventListener("click", displayFarenTemp);
 
 searchCity("Los Angeles");
