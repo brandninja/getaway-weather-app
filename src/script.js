@@ -113,20 +113,23 @@ function displayWeather(response) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-      <i id="forecast-icon" class="fas fa-snowflake"></i>
+      <i id="forecast-icon" class="fas fa-cloud"></i>
       <div><strong>${formatDay(forecastDay.dt)}</strong></div>
       <div>${Math.round(forecastDay.temp.max)}° / ${Math.round(
-        forecastDay.temp.min
-      )}°</div>
+          forecastDay.temp.min
+        )}°</div>
     </div>  
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
