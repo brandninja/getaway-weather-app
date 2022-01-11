@@ -27,6 +27,13 @@ currentTime.innerHTML = `${localeTime}`;
 
 //above this is the auto-updated date and time
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function getForecast(coordinates) {
   let apiKey = "b3cdb6968572344c2ff1c9ddda2aeb03";
   let units = "imperial";
@@ -105,18 +112,19 @@ function displayWeather(response) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Mon", "Tue", "Wed", "Thu"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <div class="col-2">
       <i id="forecast-icon" class="fas fa-snowflake"></i>
-      <div><strong>${day}</strong></div>
-      <div>23° / 14°</div>
+      <div><strong>${formatDay(forecastDay.dt)}</strong></div>
+      <div>${Math.round(forecastDay.temp.max)}° / ${Math.round(
+        forecastDay.temp.min
+      )}°</div>
     </div>  
   `;
   });
@@ -131,14 +139,6 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 }
-
-//function getForecast(city) {
-//let apiKey = "b3cdb6968572344c2ff1c9ddda2aeb03";
-//let units = "imperial";
-//let cnt = 4;
-//let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=${cnt}&appid=${apiKey}&units=${units}`;
-//axios.get(apiUrl).then(displayForecast);
-//}
 
 function handleSubmit(event) {
   event.preventDefault();
